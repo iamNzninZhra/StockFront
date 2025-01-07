@@ -1,0 +1,8 @@
+@font-face {
+    font-family: Yekan;
+    src: url(Fonts/yekan.ttf),url(Fonts/yekan.woff),url(Fonts/Yekan2.ttf);
+  }
+  
+  .input-field:focus{
+    border: black 1px solid;
+  }
