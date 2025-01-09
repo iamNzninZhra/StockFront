@@ -1,17 +1,43 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react'
-//import styled from "styled-components";
 import { Typography } from '@mui/material';
 import '../index.css'
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import Button from 'react-bootstrap/Button';
-
+// import Button from 'react-bootstrap/Button';
+// import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Snackbar from '@mui/material/Snackbar';
 
 export default function FirstTable() {
+
+  const [state, setState] = React.useState({
+    open: false,
+    vertical: 'top',
+    horizontal: 'center',
+  });
+  const { vertical, horizontal, open } = state;
+
+  const handleClick = (newState) => () => {
+    setState({ ...newState, open: true });
+  };
+
+  const handleClose = () => {
+    setState({ ...state, open: false });
+  };
+
+  const buttons = (
+    <React.Fragment>
+      <Box sx={{ display: 'flex', justifyContent: 'left', marginLeft: "37px" }}>
+        <Button onClick={handleClick({ vertical: 'top', horizontal: 'center' })} sx={{ fontSize: "20px" }}>
+          Log In
+        </Button>
+      </Box>
+    </React.Fragment>
+  );
   return (
     <>
-      <div style={{ marginTop: "55px", fontSize: "21px", fontWeight: "500" }}>
+      <div style={{ margin: "100px 610px", fontSize: "21px", fontWeight: "500" }}>
         <Typography sx={{ fontSize: "30px", marginTop: "20px", marginLeft: "30px", fontFamily: "Yekan", backgroundColor: "#007bff", width: "550px", height: "75px", borderTopLeftRadius: "5px", borderTopRightRadius: "5px", color: "#fff", fontWeight: "400", boxShadow: "5px 5px 32px #e3e1d6" }}>
           <span style={{ marginLeft: "20px", lineHeight: "2.7" }} />Stock User
         </Typography>
@@ -44,8 +70,19 @@ export default function FirstTable() {
             </div>
           ))}
         </Form>
+        <Box sx={{ width: 500 }}>
+          {buttons}
+          <Snackbar
+            anchorOrigin={{ vertical, horizontal }}
+            open={open}
+            onClose={handleClose}
+            message="Successfully Log In!"
+            key={vertical + horizontal}
+          />
+        </Box>
 
-        <Button as="input" type="submit" value="Submit" style={{ marginLeft: "40px", marginTop: "20px" }} />
+
+        {/* <Button as="input" type="submit" value="Submit" style={{ marginLeft: "40px", marginTop: "20px" }} /> */}
 
       </div>
     </>

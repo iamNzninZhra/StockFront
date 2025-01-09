@@ -2,6 +2,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Drawer, List, ListItem, ListItemText } from '@mui/material';
+import { Link } from "react-router-dom";
+import Products from './Products';
 
 
 const SideBar = ({ open, onClose }) => {
@@ -12,7 +14,7 @@ const SideBar = ({ open, onClose }) => {
           <ListItemText primary="Owner Login" />
         </ListItem>
         <ListItem button onClick={onClose} >
-          <ListItemText primary="Stock" />
+          <Link to={`/Products`}><ListItemText primary="Stock" /></Link>
         </ListItem>
       </List>
     </Drawer>
