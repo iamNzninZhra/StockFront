@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect, useState } from 'react';
 import { Typography } from '@mui/material';
 import '../index.css'
 import Form from 'react-bootstrap/Form';
@@ -8,8 +9,10 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
+import Loading from './Loading';
 
-export default function FirstTable() {
+
+export default function Login() {
 
   const [state, setState] = React.useState({
     open: false,
@@ -35,6 +38,23 @@ export default function FirstTable() {
       </Box>
     </React.Fragment>
   );
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate a data fetch or loading process
+    const timer = setTimeout(() => {
+      setLoading(false); // Set loading to false after 2 seconds
+    }, 2000);
+
+    // Cleanup the timer on component unmount
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loading />
+  };
+
   return (
     <>
       <div style={{ margin: "100px 610px", fontSize: "21px", fontWeight: "500" }}>

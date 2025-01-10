@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import 'bootstrap/dist/css/bootstrap.css';
-import FirstTable from './FirstTable';
+import LogIn from './LogIn';
 import { useState } from 'react';
 import SideBar from './SideBar';
 
@@ -37,7 +37,7 @@ export default function DenseAppBar() {
             {/* <Typography variant="h1" sx={{ fontSize: "30px", marginTop: "40px", marginLeft: "35px", fontFamily: "Yekan" }}>
                 Stock Owner Login
             </Typography> */}
-            <FirstTable style={{ fontFamily: "Yekan" }} />
+            <LogIn style={{ fontFamily: "Yekan" }} />
         </>
 
     );
